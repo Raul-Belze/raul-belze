@@ -25,15 +25,36 @@ window.onload=function() {
 	var soricel;
 	var score;
 	
+	ctx.fillStyle = "white";
+	ctx.fillRect(0, 0, w, h);
+	ctx.strokeStyle = "black";
+	ctx.strokeRect(0, 0, w, h);
 	
-	var sarpe_array; //sirul din ce va fi compus sarpele
+	var sarpe_array; 
 	
-
-		ctx.fillStyle = "white";
-		ctx.fillRect(0, 0, w, h);
-		ctx.strokeStyle = "black";
-		ctx.strokeRect(0, 0, w, h);}
-	</script>
+	create_sarpe();
+	function create_sarpe()
+	{
+		var length = 5;
+		sarpe_array = [];
+		for(var i = length-1; i>=0; i--)
+		{
+			sarpe_array.push({x: i, y:0});
+		}
+	}
+	function paint()
+	{
+		for(var i = 0; i < sarpe_array.length; i++)
+		{
+			var c = sarpe_array[i];
+			ctx.fillStyle = "blue";
+			ctx.fillRect(c.x*sw, c.y*sw, sw, sw);
+			ctx.strokeStyle = "white";
+			ctx.strokeRect(c.x*sw, c.y*sw, sw, sw);
+		}
+	}
+	paint();
+	}</script>
 </body>
 
 
